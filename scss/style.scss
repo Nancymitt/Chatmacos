@@ -1,0 +1,313 @@
+@import "fonts";
+@import "reset";
+@import "global";
+@import "vars";
+
+.grid-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 70px 262px 1fr 200px;
+  grid-template-rows: 800px;
+  .aside__btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    &.active {
+      transform: rotate(180deg);
+      & path {
+        stroke: #000fff;
+      }
+    }
+  }
+
+  .header {
+    background-color: #000;
+    &__menu {
+      padding-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+      }
+      &__item {
+        cursor: pointer;
+        opacity: 0.4;
+        &:hover, &.active {
+          opacity: 1;
+        }
+      }
+      &__add {
+        border: 1px solid transparent;
+        &:hover {
+          border-color: #a1a1a1;
+          border-radius: 50%
+        }
+      }
+    }
+  }
+
+  .second {
+    background-color: #25272A;
+    color: #B5B5B5;
+    padding: 30px 25px 10px 25px;
+    overflow-y: scroll;
+    &__title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &__chat {
+      font-size: 14px;
+      line-height: 17px;
+      margin: 23px 0;
+    }
+    &__menu, &__friends {
+      font-size: 12px;
+      line-height: 14px;
+      text-transform: uppercase;
+      transition: all 0.3s ease-in;
+    }
+    &__menu span {
+      padding-left: 130px;
+    }
+    &__menu.active {
+      transform: translateY(-250%);
+
+    }
+    &__menu-item {
+      margin-top: 12px;
+      &:hover, &.active {
+        font-weight: 700;
+        color: #FFFFFF;
+        background-color: #5E6166;
+      }
+    }
+    &__menu-link, &__friends-link {
+      font-size: 14px;
+      line-height: 17px;
+      text-transform: none;
+    }
+    &__friends {
+      margin-top: 17px;
+      & span {
+        padding-left: 140px;
+      }
+    }
+    &__friends.active {
+      transform: translateY(-350px);
+    }
+    &__friends-list {
+      margin-top: 15px;
+      padding-left: 20px;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background-color: #666666;
+        border-radius: 50%;
+        top: 50%;
+        left: 1px;
+      }
+      &.online::before {
+        background-color: #70CC16;
+      }
+    }
+    &__friends-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  .general {
+    width: 100%;
+    &__top {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(#000000, 0.24);
+      gap: 10px;
+      &__title {
+        flex-basis: 120px;
+        // padding-left: 25px;
+        & img {
+          padding-left: 10px;
+        }
+      }
+      &__search {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &__form {
+          position: relative;
+          &__input {
+            padding-right: 20px;
+            border-color: rgba(#000000, 0.24);
+            border-radius: 5px;
+          }
+          &__btn {
+            position: absolute;
+            top: 3px;
+            right: 3px;
+          }
+        }
+        &__menu {
+          padding: 0 12px;
+        }
+      }
+    }
+    &__chat-item {
+      margin: 12px 0;
+      // width: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    &-avatar {
+      // flex-basis: 35px;
+      width: 33px;
+    }
+    &__chat-content {
+      flex-basis: 750px;
+    }
+    &__chat-photo {
+      position: relative;
+      &::before {
+        content: '3';
+        position: absolute;
+        background-image: url(../img/icons/smile_1.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: #fff;
+        padding: 6px 0 0 27px;
+        font-size: 20px;
+        color: #000;
+        height: 25px;
+        width: 50px;
+        box-shadow: 2px 2px 2px 1px rgba(#000000, 0.24);
+        border-radius: 3px;
+        right: -7px;
+        bottom: 0px;
+        cursor: pointer;
+      }
+    }
+    &__chat-link {
+      font-size: 13px;
+      line-height: 138%;
+      color: #3577EF;
+    }
+    &__chat-date {
+      font-size: 13px;
+      line-height: 138%;
+      text-align: center;
+      color: #8D8D8D;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      &::after, &::before {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: rgba(#000, 0.16);
+      }
+    }
+    &__chat-text {
+      font-size: 13px;
+      line-height: 154%;
+      color: #000000;
+    }
+    &__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(#000, 0.16);
+      padding-top: 15px;
+      &__message {
+        flex-basis: 250px;
+        & img {
+          margin-right: 15px;
+        }
+      }
+    }
+    &__bottom-txt {
+      display: inline-block;
+    }
+
+  }
+
+  .aside {
+    transition: all 0.3s ease-in;
+    &.active {
+      transform: translateX(250%);
+    }
+    &__about {
+      height: 75%;
+      background-color: #F2F2F2;
+      padding: 15px 20px;
+    }
+    &__title {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: #000000;
+    }
+    &__job-title {
+      font-size: 12px;
+      line-height: 14px;
+      color: #5F6164;
+      margin: 5px 0 25px;
+    }
+    &__form {
+      &-post, &-btn {
+        font-size: 13px;
+        line-height: 16px;
+        background-color: #3577EF;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 5px;
+        margin: 18px 0 14px;
+        cursor: pointer;
+      }
+      &-post {
+        font-weight: 700;
+        padding: 4px 25px;
+      }
+      &-btn {
+        padding: 4px;
+      }
+    }
+    &__contacts {
+      &__name {
+        font-size: 12px;
+        line-height: 14px;
+        color: #5F6164;
+        margin-bottom: 5px;
+      }
+      &__value {
+        font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+        margin-bottom: 12px;
+      }
+    }
+  }
+}
+
+
+
+
+
+@import "media";

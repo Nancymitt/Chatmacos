@@ -1,0 +1,131 @@
+%burger {
+   .header__burger {
+      display: block;
+      width: 30px;
+      height: 20px;
+      position: relative;
+      z-index: 3;
+      & span {
+         background-color: #000;
+         position: absolute;
+         width: 100%;
+         height: 2px;
+         top: 50%;
+         transform: translateY(-50%);
+         transition: all 0.2s ease-in;
+      }
+      &::before, &::after {
+         content: "";
+         background-color: #000fff;
+         position: absolute;
+         width: 100%;
+         height: 2px;
+         transition: all 0.2s ease-in;
+      }
+      &::before {
+         top: 0;
+      }
+      &::after {
+         bottom: 0;
+      }
+      &.active::before {
+         transform: rotate(45deg);
+         top: 9px;
+      }
+      &.active::after {
+         transform: rotate(-45deg);
+         bottom: 9px;
+      }
+      &.active span {
+         transform: scale(0);
+      }
+   }
+}
+// использование:  @extend %slick-arrow;
+
+// Стрелка 
+// %slick-arrow {
+//    .slick-arrow {
+//       position: absolute;
+//       font-size: 0;
+//       top: 100%;
+//       z-index: 10;
+//       width: 40px;
+//       height: 40px;
+//       border: none;
+//       background-color: transparent;
+//       cursor: pointer;
+//       &.slick-prev {
+//          top: 23%;
+//          left: 0.5%;
+//          &::before {
+//             content: url(../img/icons/arrow_prev.svg);
+//          }
+//       }
+//       &.slick-next {
+//          top: 23%;
+//          right: 0.5%;
+//          &::before {
+//             content: url(../img/icons/arrow_next.svg);
+//          }
+//       }
+
+//    }
+//    .slick-prev.slick-disabled:before,
+//    .slick-next.slick-disabled:before {
+//       opacity: .25;
+//       cursor: auto;
+//    }
+// }
+
+// Точки (пагинация)
+// %slick-dots {
+//    .slick-dots {
+//       padding: 0;
+//       margin: 20px 0;
+//       list-style: none;
+//       display: flex;
+//       justify-content: center;
+//       gap: 30px;
+//       & li {
+//          background-color: #363838;
+//          border-radius: 50%;
+//          width: 8px;
+//          height: 8px;
+//          & button {
+//             line-height: 0;
+//             color: transparent;
+//             border: none;
+//             outline: none;
+//             cursor: pointer;
+//          }
+//          &.slick-active {
+//             background-color: #ffef35;
+//          }
+//       }
+//    }
+// }
+/*Точки (пагинация) циферки*/
+// %slick-num {
+//    .slick-dots {
+//       padding: 0;
+//       margin: 0;
+//       display: flex;
+//       justify-content: center;
+//       gap: 12px;
+//       & li {
+//          list-style: none;
+//          & button {
+//             font-weight: 600;
+//             font-size: 14px;
+//             line-height: 2;
+//             color: #363838;
+//             cursor: pointer;
+//          }
+//          &.slick-active button {
+//             opacity: 0.3;
+//             cursor: auto;
+//          }
+//       }
+//    }
+// }

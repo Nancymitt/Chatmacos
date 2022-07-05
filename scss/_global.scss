@@ -1,0 +1,49 @@
+html,
+body {
+   height: 100%;
+   font-family: 'Lato';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 14px;
+   line-height: 17px;
+   color: #B5B5B5;
+   overflow-x: hidden;
+}
+.container {
+   max-width: 1420px;
+   padding: 0 10px;
+   margin: 0 auto;
+}
+.container-content {
+   max-width: 870px;
+   padding: 0 25px;
+}
+
+.social {
+   display: flex;
+   gap: 6.5px;
+   &-link {
+      // display: inline-block;
+      height: 25px;
+      width: 25px;
+      border-radius: 50%;
+      transition: all 0.3s ease-in;
+      &:hover {
+         color: #C1A1D2;
+      }
+   }
+}
+
+.online {
+   position: relative;
+   &::before {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: #70CC16;
+      border-radius: 50%;
+      top: 50%;
+      left: 1px;
+   }
+}

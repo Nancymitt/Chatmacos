@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+// SCSS Миксин на адаптив шрифтов: 
+//указываем ширину макета
+$ownWidth: 1400;
+@mixin adaptiv-font($pcSize, $mobSize) {
+   $addSize: $pcSize - $mobSize;
+   $maxWidth: $ownWidth - 320;
+   @media(max-width: #{$ownWidth + px}) {
+      font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+   }
+   @media(min-width: #{$ownWidth + px}) {
+      font-size: #{$pcSize + px};
+   }
+}
+
+h1 {
+   font-weight: 700;
+   @include adaptiv-font(44, 32);
+   line-height: 120%;
+}
+h2, .h2-black {
+   font-family: 'Lato';
+   font-style: normal;
+   font-weight: 700;
+   @include adaptiv-font(20, 18);
+   line-height: 24 / 20 * 100%;
+   color: #FFFFFF;
+   // text-transform: uppercase;
+}
+.h2-black {
+   color: #000;
+}
+h3, .h3 {
+   font-weight: 700;
+   @include adaptiv-font(26, 22);
+   line-height: 38 / 26 * 100%;
+}
+h4 {
+   font-weight: 400;
+   @include adaptiv-font(24, 18);
+   line-height: 2.73;
+
+}
